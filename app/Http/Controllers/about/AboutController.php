@@ -15,7 +15,7 @@ class AboutController extends Controller
     public function index()
     {
         $about = About::pluck('about')->first();
-        $education = Educations::all();
+        $education = Educations::latest()->get();
         $experience = experience::with('status:id,title')->get();
         $data = [
             'about' => $about,
