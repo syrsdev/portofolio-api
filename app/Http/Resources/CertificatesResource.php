@@ -16,8 +16,9 @@ class CertificatesResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'title' => $this->title,
             'image' => $this->image,
-            'title' => $this->title
+            'file' => $this->file,
         ];
     }
 }
