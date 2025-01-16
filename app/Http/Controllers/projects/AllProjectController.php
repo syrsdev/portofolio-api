@@ -12,6 +12,10 @@ class AllProjectController extends Controller
     public function index()
     {
         $projects = Projects::with(['projectSkills:project_id,skill_id', 'projectSkills.skill:id,image'])->latest()->get();
-        return ProjectsResource::collection($projects);
+        if ($projects->isEmpty()) {
+            return (ProjectsResource::collection($projects))->response()->setStatusCode(404);
+        } else {
+            return (ProjectsResource::collection($projects))->response()->setStatusCode(200);
+        }
     }
 }

@@ -15,6 +15,10 @@ class RecentProjectsController extends Controller
         $recentProjects = Projects::with(['projectSkills:project_id,skill_id', 'projectSkills.skill:id,image'])->latest()->limit(3)->get();
 
         // return response()->json(['data' => $recentProjects]);
-        return ProjectsResource::collection($recentProjects);
+        if ($recentProjects->isEmpty()) {
+            return (ProjectsResource::collection($recentProjects))->response()->setStatusCode(404);
+        } else {
+            return ProjectsResource::collection($recentProjects)->response()->setStatusCode(200);
+        }
     }
 }
