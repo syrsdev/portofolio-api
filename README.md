@@ -16,9 +16,9 @@ This repository was created to store the backend api code of the dynamic persona
 
 **Frontend:** ReactJS, TailwindCSS, axios, react-router-dom
 
-**Backend CMS:** Laravel, Bootstrap
+**Backend CMS:** PHP, Laravel, Bootstrap
 
-**Backend API:** Laravel
+**Backend API:** PHP, Laravel
 
 **Database:** Mysql
 
